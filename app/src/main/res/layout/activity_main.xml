@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/app_bar"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/card_back"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/mainActivityTextViewFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:text="TextView"
+                android:textColor="@color/text_color_fade"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewMainActicityUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter"
+                android:text="Pulkit Loya"
+                android:drawableEnd="@drawable/handemoji"
+                android:textSize="20sp"
+                android:drawablePadding="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/mainActivityTextViewFirst"
+                app:layout_constraintTop_toBottomOf="@+id/mainActivityTextViewFirst" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+
+                android:layout_marginStart="25dp"
+                android:id="@+id/constraintLayoutChartGraph"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/textViewMainActicityUserName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="150dp">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="4dp"
+                android:layout_height="match_parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_margin="25dp"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayoutChartGraph"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:text="@string/top_links"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:padding="15dp"
+                        android:id="@+id/topLinks"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/inter"
+                        android:background="@drawable/tab_selected"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:text="@string/recent_links"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:id="@+id/recentLinks"
+                        android:textColor="@color/text_color_fade"
+                        android:padding="15dp"
+                        android:background="@null"
+                        android:layout_marginStart="8dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/inter"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_marginStart="35dp"
+                        android:src="@drawable/search"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="36dp"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/mainActRecyclerView"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/inter"
+            android:text="Dashboard"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/settingbutton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
