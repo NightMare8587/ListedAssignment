@@ -13,6 +13,7 @@ class LinksViewModel : ViewModel() {
     var linksData = MutableLiveData<ListedModel>()
 
     fun getLinksData(token : String) {
+        //fetching data and passing end point as parameter
        val retrofit = RetrofitObject(token).getInstance()
         retrofit?.getData("dashboardNew")?.enqueue(object : Callback<ListedModel> {
             override fun onResponse(call: Call<ListedModel>, response: Response<ListedModel>) {

@@ -15,6 +15,7 @@ class RetrofitObject(private val token: String) {
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.Builder().addInterceptor { chain ->
+                    //passing auth token in client so no need to pass this token in every retrofit function
                     val request = chain.request().newBuilder().addHeader("Authorization", "Bearer $token").build()
                     chain.proceed(request)
                 }.build())

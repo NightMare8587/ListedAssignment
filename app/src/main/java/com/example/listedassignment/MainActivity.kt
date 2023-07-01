@@ -31,15 +31,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //initialising all views
         initialise()
 
-
+        //observing the data fetched through retrofit
         observeData()
 
         topLinks.setOnClickListener {
+            // if current tab is the active tab then do nothing
             if(activeTab == "top")
                 return@setOnClickListener
-
+            //change background of buttons and observe other list of data
+            //passing other list to recyclerview adapter
             recentLinks.background = null
             topLinks.background = AppCompatResources.getDrawable(this,R.drawable.tab_selected)
             linksViewModel.linksData.observe(this) {
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         recentLinks.setOnClickListener {
-
+            //same as above function but different logic
             if(activeTab == "recent")
                 return@setOnClickListener
 
@@ -70,17 +73,14 @@ class MainActivity : AppCompatActivity() {
     private fun observeData() {
         Toast.makeText(this, "Fetching Data...", Toast.LENGTH_SHORT).show()
         linksViewModel.linksData.observe(this) {
+            //passing the data to recyclerview model
             linksAdapter.setModel(it.data.top_links)
-            fillLineChart(it.data.overall_url_chart)
             Log.d("Hello",it.data.toString())
         }
 
         linksViewModel.getLinksData(sharedPreferences.getString("token","").toString())
     }
 
-    private fun fillLineChart(overallUrlChart: OverallUrlChart) {
-
-    }
 
     private fun initialise() {
         showLocalTime = findViewById(R.id.mainActivityTextViewFirst)
